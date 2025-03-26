@@ -1,31 +1,42 @@
-﻿using DotNetLab.src.BackEnd.Models;
-using DotNetLab.src.BackEnd.Services;
+﻿using DotNetLab.Models;
+using DotNetLab.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace DotNetLab.src.BackEnd.Controllers
+namespace DotNetLab.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class BirthdayController : ControllerBase
+    public class PersonController : ControllerBase
     {
-        private readonly ILogger<BirthdayController> _logger;
-        private readonly IBirthdayService _birthdayService;
+        private readonly ILogger<PersonController> _logger;
+        private readonly IPersonService _personService;
 
-        public BirthdayController(ILogger<BirthdayController> logger, IBirthdayService birthdayService)
+        public PersonController(ILogger<PersonController> logger, IPersonService personService)
         {
             _logger = logger;
-            _birthdayService = birthdayService;
+            _personService = personService;
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] string birthdate)
+        public async Task<IActionResult> Post([FromBody] PersonRequestModel request)
         {
-            var birthdayModel = new BirthdayModel { Birthdate = DateTime.Parse(birthdate) };
+            if (string.IsNullOrEmpty(request.FirstName) || string.IsNullOrEmpty(request.LastName) || string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Birthdate.ToString()))
+            {
+                return BadRequest(new Person() { ErrorMessage = "Bad data" });
+            }
 
-            _logger.LogInformation($"Отримано дату народження: {birthdayModel}");
+            _logger.LogInformation($"Отримано дату народження: {request.Birthdate}");
 
-            var result = _birthdayService.CalculateBirthdayInfo(birthdayModel);
+            var personModel = new PersonModel
+            {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                Birthdate = DateTime.Parse(request.Birthdate)
+            };
+
+            var result = await _personService.CalculatePersonInfoAsync(personModel);
 
             if (!string.IsNullOrEmpty(result.ErrorMessage))
             {

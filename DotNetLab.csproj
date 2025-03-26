@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="src\BackEnd\Services\IBirthdayService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="src\BackEnd\Properties\" />
     <Folder Include="src\FrontEnd\" />
   </ItemGroup>
@@ -17,6 +25,12 @@
   </ItemGroup>
     <ItemGroup>
 	    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.15" />
+    </ItemGroup>
+    <ItemGroup>
+      <EditorConfigFiles Remove="C:\Programming\trash\DotNetLab\.editorconfig" />
+    </ItemGroup>
+    <ItemGroup>
+      <EditorConfigFiles Remove="C:\Programming\trash\DotNetLab\.editorconfig" />
     </ItemGroup>
 
 </Project>

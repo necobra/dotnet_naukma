@@ -1,4 +1,4 @@
-﻿using DotNetLab.src.BackEnd.Services;
+﻿using DotNetLab.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
     });
 });
 builder.Services.AddControllers();
-builder.Services.AddScoped<IBirthdayService, BirthdayService>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

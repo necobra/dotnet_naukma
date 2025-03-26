@@ -24,3 +24,4 @@ C:\Programming\trash\DotNetLab\obj\Debug\net8.0\refint\DotNetLab.dll
 C:\Programming\trash\DotNetLab\obj\Debug\net8.0\DotNetLab.pdb
 C:\Programming\trash\DotNetLab\obj\Debug\net8.0\DotNetLab.genruntimeconfig.cache
 C:\Programming\trash\DotNetLab\obj\Debug\net8.0\ref\DotNetLab.dll
+C:\Programming\trash\DotNetLab\obj\Debug\net8.0\DotNetLab.sourcelink.json

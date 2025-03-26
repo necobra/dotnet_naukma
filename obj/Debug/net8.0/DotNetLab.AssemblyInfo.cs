@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DotNetLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b31691f158af8d4809b81994d2eabd64abce7876")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad805177fbeaf6ac4bb9c9c8c028b7993b808c68")]
 [assembly: System.Reflection.AssemblyProductAttribute("DotNetLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DotNetLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

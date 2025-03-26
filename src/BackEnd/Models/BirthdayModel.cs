@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetLab.src.BackEnd.Models
+namespace DotNetLab.Models
 {
     public class BirthdayModel
     {
