@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "PGCMU363tDM=",
+  "success": true,
+  "projectFilePath": "C:\\Programming\\trash\\DotNetLab\\DotNetLab.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\necobra\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\6.0.15\\microsoft.aspnetcore.spaproxy.6.0.15.nupkg.sha512",
+    "C:\\Users\\necobra\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.3\\microsoft.extensions.dependencyinjection.9.0.3.nupkg.sha512",
+    "C:\\Users\\necobra\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.3\\microsoft.extensions.dependencyinjection.abstractions.9.0.3.nupkg.sha512",
+    "C:\\Users\\necobra\\.nuget\\packages\\microsoft.extensions.logging\\9.0.3\\microsoft.extensions.logging.9.0.3.nupkg.sha512",
+    "C:\\Users\\necobra\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.3\\microsoft.extensions.logging.abstractions.9.0.3.nupkg.sha512",
+    "C:\\Users\\necobra\\.nuget\\packages\\microsoft.extensions.options\\9.0.3\\microsoft.extensions.options.9.0.3.nupkg.sha512",
+    "C:\\Users\\necobra\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.3\\microsoft.extensions.primitives.9.0.3.nupkg.sha512",
+    "C:\\Users\\necobra\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.3\\system.diagnostics.diagnosticsource.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
