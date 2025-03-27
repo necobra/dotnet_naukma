@@ -5,7 +5,7 @@ const BirthdayForm = ({ onSubmit }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit({ birthdate });
+        onSubmit( birthdate );
     };
 
     return (

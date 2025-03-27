@@ -16,7 +16,7 @@ const App = () => {
                     'Content-Type': 'application/json',
                     'Referrer-Policy': 'no-referrer',
                 },
-                body: JSON.stringify(birthdate.birthdate),
+                body: JSON.stringify(birthdate),
             });
 
             if (!response.ok) {
