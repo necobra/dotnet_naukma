@@ -96,17 +96,23 @@ namespace DotNetLab.Services
             });
         }
 
-        private async Task<string> CalculateChineseZodiacSignAsync(DateTime birthYear)
+        private async Task<string> CalculateChineseZodiacSignAsync(DateTime birthDate)
         {
             return await Task.Run(() =>
             {
                 ChineseLunisolarCalendar chineseCalendar = new ChineseLunisolarCalendar();
 
-                int year = chineseCalendar.GetSexagenaryYear(birthYear);
+                int chineseYear = chineseCalendar.GetYear(birthDate);
 
-                string[] chineseZodiacSigns = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig" };
-                int index = year % 12;
-                return chineseZodiacSigns[index - 1];
+                string[] chineseZodiacSigns =
+                {
+                    "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake",
+                    "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"
+                };
+
+                int index = (chineseYear - 4) % 12;
+
+                return chineseZodiacSigns[index];
             });
         }
     }
