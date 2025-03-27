@@ -39,10 +39,11 @@ const App = () => {
                 setResult(result);
                 setError(false);
             }
-            setWaitForResult(false);
+
         } catch (error) {
             console.error(error.message);
         }
+        setWaitForResult(false);
     };
 
     return (
