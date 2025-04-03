@@ -12,3 +12,4 @@ namespace DotNetLab.Services
         Task<Person> CalculatePersonInfoAsync(PersonModel model);
     }
 }
+    

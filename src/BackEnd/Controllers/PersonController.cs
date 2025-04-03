@@ -1,5 +1,6 @@
 ﻿using DotNetLab.Models;
 using DotNetLab.Services;
+using DotNetLab.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -23,10 +24,10 @@ namespace DotNetLab.Controllers
         {
             if (string.IsNullOrEmpty(request.FirstName) || string.IsNullOrEmpty(request.LastName) || string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Birthdate.ToString()))
             {
-                return BadRequest(new Person() { ErrorMessage = "Bad data" });
+                return BadRequest(new ErrorResult() { ErrorMessage = "Bad data" });
             }
 
-            _logger.LogInformation($"Отримано дату народження: {request.Birthdate}");
+            _logger.LogInformation($"Recieved person: {request.Birthdate}");
 
             var personModel = new PersonModel
             {
@@ -36,14 +37,23 @@ namespace DotNetLab.Controllers
                 Birthdate = DateTime.Parse(request.Birthdate)
             };
 
-            var result = await _personService.CalculatePersonInfoAsync(personModel);
-
-            if (!string.IsNullOrEmpty(result.ErrorMessage))
+            try
             {
-                return BadRequest(result);
+                var result = await _personService.CalculatePersonInfoAsync(personModel);
+                return new JsonResult(result);
             }
-
-            return new JsonResult(result);
+            catch (FutureBirthdateException ex)
+            {
+                return BadRequest(new ErrorResult() { ErrorMessage = ex.Message });
+            }
+            catch (AncientBirthdateException ex)
+            {
+                return BadRequest(new ErrorResult() { ErrorMessage = ex.Message });
+            }
+            catch (InvalidEmailException ex)
+            {
+                return BadRequest(new ErrorResult() { ErrorMessage = ex.Message });
+            }
         }
     }
 }

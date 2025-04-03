@@ -1,6 +1,7 @@
-﻿using DotNetLab.Models;
-using DotNetLab.Services;
+﻿using DotNetLab.Exceptions;
+using DotNetLab.Models;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace DotNetLab.Services
 {
@@ -14,20 +15,19 @@ namespace DotNetLab.Services
             if (model.Birthdate > today.AddYears(-age))
                 age--;
 
-            if (age > 135)
+            if (model.Birthdate > today)
             {
-                return new Person
-                {
-                    ErrorMessage = "The age is too high"
-                };
+                throw new FutureBirthdateException();
             }
 
-            if (age < 0)
+            if (age > 130)
             {
-                return new Person
-                {
-                    ErrorMessage = "The age is negative"
-                };
+                throw new AncientBirthdateException();
+            }
+
+            if (!IsValidEmail(model.Email))
+            {
+                throw new InvalidEmailException();
             }
 
             Task<bool> isAdultTask = IsAdultAsync(age);
@@ -114,6 +114,15 @@ namespace DotNetLab.Services
 
                 return chineseZodiacSigns[index];
             });
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return emailRegex.IsMatch(email);
         }
     }
 }
